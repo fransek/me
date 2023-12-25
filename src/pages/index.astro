@@ -1,50 +1,22 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseLayout from '../components/BaseLayout.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to
-				build a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like
-				Tailwind, React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<h2 class="text-2xl">Hello World 👋🏽</h2>
+	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, ut est atque dignissimos illo debitis repudiandae, id voluptatum ratione distinctio minima vero iure quo dolorem sapiente at ipsam officia iste asperiores a possimus? Quae nostrum nemo ad, voluptates omnis sed recusandae eos repellendus. Sapiente odit, reiciendis voluptatum facilis quisquam recusandae omnis modi eaque repellendus iusto eveniet temporibus aspernatur dignissimos ad? Assumenda possimus laboriosam libero numquam natus quibusdam aliquam, distinctio laborum porro, soluta dolor! In, repellendus sapiente! Quos dicta autem perferendis voluptate eveniet suscipit voluptatum facere facilis veritatis nobis recusandae saepe sunt voluptates, praesentium consectetur placeat provident dignissimos temporibus, officiis eum.</p>
+	<hr>
+	<h2 class="text-2xl">Projects 🛠️</h2>
+	<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, illo odio? Alias asperiores recusandae impedit consequatur magni iure ex enim eaque nam magnam! Nobis blanditiis deleniti pariatur incidunt libero! Vitae explicabo necessitatibus voluptatibus, id odit natus nostrum dignissimos iure minima voluptatem commodi, accusantium praesentium iusto tenetur? Adipisci, blanditiis eligendi. Distinctio hic obcaecati rerum sequi. Harum tenetur iure suscipit non iusto minima quam. Optio officiis quasi delectus labore a nisi. Maxime fugiat dolore quidem magni culpa aspernatur enim pariatur reprehenderit eius nobis dignissimos, qui ipsam rerum quod quisquam nesciunt vitae sequi nisi facere ut blanditiis libero iure nostrum! Rem, tempora tempore?</p>
+	<hr>
+	<h2 class="text-2xl">Work 💼</h2>
+	<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde iusto quod perspiciatis. Ratione facere debitis sed quis sapiente voluptatem accusamus impedit deleniti omnis quaerat possimus fuga earum ipsam inventore modi minus repellat, quisquam nostrum tenetur. Accusamus sint voluptate minima consectetur fugit eaque nihil qui aut minus deleniti ad adipisci vel exercitationem, consequuntur pariatur dolorem amet voluptas. Saepe delectus odio quas provident, atque vitae ut autem. Perspiciatis pariatur culpa id optio cumque nisi consequuntur ab praesentium. Rem temporibus dolore id vel veritatis vero illo harum repellendus facilis, cumque dignissimos ducimus maiores error eveniet nobis at. Sed dolorum perspiciatis fugiat sapiente et.</p>
+	<hr>
+	<h2 class="text-2xl">Education 🎓</h2>
+	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt adipisci hic velit tempora nisi repellendus iure tenetur repellat officiis sit minima, officia quae suscipit veritatis quas ratione commodi eos saepe aliquid ullam necessitatibus sequi cupiditate facere nulla? Vitae nobis fugiat nesciunt iure ut odio ipsum dolor illum ipsa quae exercitationem atque consectetur mollitia, debitis sint eveniet incidunt neque deserunt doloremque. Perferendis deleniti magni, corporis quod consectetur ad doloribus, voluptatem, amet debitis quo optio. Porro nostrum eveniet dolorem similique excepturi quos dolor dolore, praesentium, deleniti veritatis laudantium odio possimus ullam non. Veniam fugit temporibus voluptatem molestiae ipsa eligendi provident, architecto placeat?</p>
+	<hr>
+</BaseLayout>
+
+
+
