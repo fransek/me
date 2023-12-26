@@ -1,0 +1,32 @@
+---
+import '@fontsource-variable/fira-code'
+import BaseHead from './BaseHead.astro'
+import '@/globals.css'
+
+interface Props {
+  title: string
+  description: string
+  image?: string
+}
+
+const { title, description, image } = Astro.props
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+  </head>
+  <body class='flex flex-col min-h-screen justify-between'>
+    <nav class='p-4 flex gap-4 bg-gray-900'>
+      <a href='/'>Home</a>
+      <a href='/blog'>Blog</a>
+    </nav>
+    <main class='flex flex-col gap-4 p-4 py-10 max-w-4xl mx-auto w-full flex-1'>
+      <slot />
+    </main>
+    <footer class='p-4 text-center bg-gray-900'>
+      <p>Frans Ekman</p>
+    </footer>
+  </body>
+</html>

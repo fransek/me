@@ -1,22 +1,66 @@
 ---
-import BaseLayout from '../components/BaseLayout.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseLayout from '@/components/layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+import { getEntry } from 'astro:content'
+
+const introduction = await getEntry('introduction', 'index')
+const { Content: IntroductionContent } = await introduction.render()
+const projects = await getCollection('project')
+const work = await getCollection('work')
+const educations = await getCollection('education')
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-	<h2 class="text-2xl">Hello World 👋🏽</h2>
-	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, ut est atque dignissimos illo debitis repudiandae, id voluptatum ratione distinctio minima vero iure quo dolorem sapiente at ipsam officia iste asperiores a possimus? Quae nostrum nemo ad, voluptates omnis sed recusandae eos repellendus. Sapiente odit, reiciendis voluptatum facilis quisquam recusandae omnis modi eaque repellendus iusto eveniet temporibus aspernatur dignissimos ad? Assumenda possimus laboriosam libero numquam natus quibusdam aliquam, distinctio laborum porro, soluta dolor! In, repellendus sapiente! Quos dicta autem perferendis voluptate eveniet suscipit voluptatum facere facilis veritatis nobis recusandae saepe sunt voluptates, praesentium consectetur placeat provident dignissimos temporibus, officiis eum.</p>
-	<hr>
-	<h2 class="text-2xl">Projects 🛠️</h2>
-	<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, illo odio? Alias asperiores recusandae impedit consequatur magni iure ex enim eaque nam magnam! Nobis blanditiis deleniti pariatur incidunt libero! Vitae explicabo necessitatibus voluptatibus, id odit natus nostrum dignissimos iure minima voluptatem commodi, accusantium praesentium iusto tenetur? Adipisci, blanditiis eligendi. Distinctio hic obcaecati rerum sequi. Harum tenetur iure suscipit non iusto minima quam. Optio officiis quasi delectus labore a nisi. Maxime fugiat dolore quidem magni culpa aspernatur enim pariatur reprehenderit eius nobis dignissimos, qui ipsam rerum quod quisquam nesciunt vitae sequi nisi facere ut blanditiis libero iure nostrum! Rem, tempora tempore?</p>
-	<hr>
-	<h2 class="text-2xl">Work 💼</h2>
-	<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde iusto quod perspiciatis. Ratione facere debitis sed quis sapiente voluptatem accusamus impedit deleniti omnis quaerat possimus fuga earum ipsam inventore modi minus repellat, quisquam nostrum tenetur. Accusamus sint voluptate minima consectetur fugit eaque nihil qui aut minus deleniti ad adipisci vel exercitationem, consequuntur pariatur dolorem amet voluptas. Saepe delectus odio quas provident, atque vitae ut autem. Perspiciatis pariatur culpa id optio cumque nisi consequuntur ab praesentium. Rem temporibus dolore id vel veritatis vero illo harum repellendus facilis, cumque dignissimos ducimus maiores error eveniet nobis at. Sed dolorum perspiciatis fugiat sapiente et.</p>
-	<hr>
-	<h2 class="text-2xl">Education 🎓</h2>
-	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt adipisci hic velit tempora nisi repellendus iure tenetur repellat officiis sit minima, officia quae suscipit veritatis quas ratione commodi eos saepe aliquid ullam necessitatibus sequi cupiditate facere nulla? Vitae nobis fugiat nesciunt iure ut odio ipsum dolor illum ipsa quae exercitationem atque consectetur mollitia, debitis sint eveniet incidunt neque deserunt doloremque. Perferendis deleniti magni, corporis quod consectetur ad doloribus, voluptatem, amet debitis quo optio. Porro nostrum eveniet dolorem similique excepturi quos dolor dolore, praesentium, deleniti veritatis laudantium odio possimus ullam non. Veniam fugit temporibus voluptatem molestiae ipsa eligendi provident, architecto placeat?</p>
-	<hr>
+<BaseLayout
+  title='Frans Ekman'
+  description='Frans Ekman is a software developer from Sweden.'
+>
+  <h2>{introduction.data.title}</h2>
+  <section>
+    <IntroductionContent />
+  </section>
+  <h2>Projects 🛠️</h2>
+  <section class='grid gap-3 grid-cols-2'>
+    {
+      projects.map(async (project) => {
+        const { Content } = await project.render()
+
+        return (
+          <div class='border-2 p-3 rounded-lg'>
+            <h3>{project.data.title}</h3>
+            <Content />
+          </div>
+        )
+      })
+    }
+  </section>
+  <h2>Work 💼</h2>
+  <section class='grid gap-3 grid-cols-2'>
+    {
+      work.map(async (position) => {
+        const { Content } = await position.render()
+
+        return (
+          <div class='border-2 p-3 rounded-lg'>
+            <h3>{position.data.title}</h3>
+            <Content />
+          </div>
+        )
+      })
+    }
+  </section>
+  <h2>Education 🎓</h2>
+  <section class='grid gap-3 grid-cols-2'>
+    {
+      educations.map(async (education) => {
+        const { Content } = await education.render()
+
+        return (
+          <div class='border-2 p-3 rounded-lg'>
+            <h3>{education.data.title}</h3>
+            <Content />
+          </div>
+        )
+      })
+    }
+  </section>
 </BaseLayout>
-
-
-
