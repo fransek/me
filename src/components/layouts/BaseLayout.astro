@@ -21,13 +21,19 @@ const links = Object.entries(ROUTES).filter(([_, route]) => route !== path)
 <!doctype html>
 <html lang='en'>
   <head>
-    <BaseHead title={title} description={description} image={image} />
+    <BaseHead
+      title={`Frans Ekman | ${title}`}
+      description={description}
+      image={image}
+    />
   </head>
   <body
-    class='flex flex-col min-h-screen justify-between'
+    class='flex flex-col min-h-screen justify-between bg-gray-900'
     transition:animate='none'
   >
-    <nav class='p-4 flex gap-4 bg-gray-900 justify-center'>
+    <nav
+      class='p-4 flex bg-gray-900 justify-around sm:justify-center sm:gap-10'
+    >
       {
         links.map(([label, route]) => (
           <a href={route} transition:name={toKebabCase(label)}>

@@ -2,10 +2,6 @@
   @apply font-["Fira_Code"] text-white border-gray-700;
 }
 
-body {
-  @apply bg-gray-950;
-}
-
 p {
   @apply text-gray-300 mb-3 last:mb-0;
 }
