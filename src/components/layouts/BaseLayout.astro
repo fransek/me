@@ -1,7 +1,10 @@
 ---
-import '@fontsource-variable/fira-code'
-import BaseHead from './BaseHead.astro'
 import '@/globals.css'
+import { ROUTES } from '@/lib/constants'
+import '@fontsource-variable/fira-code'
+import { fade } from 'astro:transitions'
+import BaseHead from './BaseHead.astro'
+import { toKebabCase } from '@/lib/formatters'
 
 interface Props {
   title: string
@@ -10,6 +13,9 @@ interface Props {
 }
 
 const { title, description, image } = Astro.props
+const path = Astro.url.pathname
+
+const links = Object.entries(ROUTES).filter(([_, route]) => route !== path)
 ---
 
 <!doctype html>
@@ -17,12 +23,23 @@ const { title, description, image } = Astro.props
   <head>
     <BaseHead title={title} description={description} image={image} />
   </head>
-  <body class='flex flex-col min-h-screen justify-between'>
-    <nav class='p-4 flex gap-4 bg-gray-900'>
-      <a href='/'>Home</a>
-      <a href='/blog'>Blog</a>
+  <body
+    class='flex flex-col min-h-screen justify-between'
+    transition:animate='none'
+  >
+    <nav class='p-4 flex gap-4 bg-gray-900 justify-center'>
+      {
+        links.map(([label, route]) => (
+          <a href={route} transition:name={toKebabCase(label)}>
+            {label}
+          </a>
+        ))
+      }
     </nav>
-    <main class='flex flex-col gap-4 p-4 py-10 max-w-4xl mx-auto w-full flex-1'>
+    <main
+      class='flex flex-col gap-4 p-4 py-10 max-w-4xl mx-auto w-full flex-1'
+      transition:animate={fade({ duration: 500 })}
+    >
       <slot />
     </main>
     <footer class='p-4 text-center bg-gray-900'>

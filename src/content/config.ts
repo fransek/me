@@ -24,7 +24,7 @@ const blog = defineCollection({
 })
 
 const work = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     title: z.string(),
     startDate: z.date(),
@@ -33,7 +33,7 @@ const work = defineCollection({
 })
 
 const education = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: z.object({
     title: z.string(),
     startDate: z.date(),

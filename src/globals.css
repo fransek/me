@@ -33,3 +33,35 @@ h5 {
 h6 {
   @apply text-base mb-3 last:mb-0;
 }
+
+a {
+  @apply hover:underline;
+}
+
+b {
+  @apply font-bold;
+}
+
+i {
+  @apply italic;
+}
+
+ul {
+  @apply list-disc list-inside;
+}
+
+ol {
+  @apply list-decimal list-inside;
+}
+
+code {
+  @apply bg-gray-900 text-gray-300 rounded p-1;
+}
+
+pre {
+  @apply bg-gray-900 text-gray-300 rounded p-3;
+}
+
+blockquote {
+  @apply border-l-4 border-gray-700 pl-2;
+}
