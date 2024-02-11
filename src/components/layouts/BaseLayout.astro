@@ -31,9 +31,7 @@ const links = Object.entries(ROUTES).filter(([_, route]) => route !== path)
     class='flex flex-col min-h-screen justify-between bg-gray-900'
     transition:animate='none'
   >
-    <nav
-      class='p-4 flex bg-gray-900 justify-around sm:justify-center sm:gap-10'
-    >
+    <nav class='p-4 flex justify-around sm:justify-center sm:gap-10'>
       {
         links.map(([label, route]) => (
           <a href={route} transition:name={toKebabCase(label)}>
@@ -48,7 +46,7 @@ const links = Object.entries(ROUTES).filter(([_, route]) => route !== path)
     >
       <slot />
     </main>
-    <footer class='p-4 text-center bg-gray-900'>
+    <footer class='p-4 text-center'>
       <p>Frans Ekman</p>
     </footer>
   </body>

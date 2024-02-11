@@ -1,20 +1,34 @@
 ---
 import BaseLayout from '@/components/layouts/BaseLayout.astro'
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+
+const posts = await getCollection('blog')
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 ---
 
 <BaseLayout title='Blog' description='asd'>
   <h2 transition:name='blog' class='w-fit'>Blog</h2>
-  <p>
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit fuga nostrum
-    cum consectetur dolorum eaque distinctio rerum suscipit consequuntur
-    corrupti facere, at delectus eveniet tempora mollitia ullam nobis provident
-    neque obcaecati quisquam aperiam perspiciatis possimus doloremque. Sint
-    provident ratione magnam odit quidem delectus amet omnis aliquid non ad nisi
-    quos sit optio ducimus inventore ea rem obcaecati explicabo dolore, nostrum
-    corrupti, enim voluptatem minima recusandae. Tempora vero repellendus sed
-    iusto corporis officia, ad excepturi nisi exercitationem est eveniet illum
-    dolor, unde nesciunt autem, eius obcaecati impedit suscipit voluptates
-    consequatur vel et harum nobis vitae. Consequuntur ut laborum esse
-    dignissimos quae!
-  </p>
+  <div class='grid grid-cols-1 md:grid-cols-2 gap-3'>
+    {
+      posts.map((post) => (
+        <div class='relative'>
+          <a href={`/blog/${post.slug}`}>
+            <h3>{post.data.title}</h3>
+            {post.data.thumbnail && (
+              <Image
+                src={post.data.thumbnail!}
+                alt={'asd'}
+                width={500}
+                height={500}
+              />
+            )}
+            <div class='absolute bottom-0 bg-black bg-opacity-50 backdrop-blur-sm p-2'>
+              {post.data.description}
+            </div>
+          </a>
+        </div>
+      ))
+    }
+  </div>
 </BaseLayout>

@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '@/components/layouts/BaseLayout.astro'
+import { getEntry } from 'astro:content'
+
+const { render } = await getEntry('introduction', 'index')
+const { Content } = await render()
 ---
 
 <BaseLayout
@@ -7,17 +11,5 @@ import BaseLayout from '@/components/layouts/BaseLayout.astro'
   description='Frans Ekman is a software developer from Sweden.'
 >
   <h2 transition:name='about-me' class='w-fit'>About me</h2>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id commodi tempora,
-    atque sed voluptates et perspiciatis at explicabo error sit. Deleniti
-    nostrum magni eaque voluptatibus. Officiis dolor distinctio iste asperiores?
-    Doloribus, eligendi, harum impedit hic dicta officia dignissimos enim quo
-    molestiae, perferendis optio mollitia excepturi distinctio laboriosam
-    perspiciatis soluta incidunt architecto ratione fuga corporis alias
-    exercitationem consectetur? Repellendus et dolorum iste molestiae numquam
-    vitae voluptatibus repudiandae impedit quam explicabo at, nesciunt
-    voluptatum neque possimus voluptas deserunt sunt vero eveniet magnam beatae
-    temporibus suscipit nostrum? Rem eos optio magni odio maxime aliquid
-    corrupti facilis magnam ipsa incidunt, fuga minima, modi nobis.
-  </p>
+  <Content />
 </BaseLayout>
