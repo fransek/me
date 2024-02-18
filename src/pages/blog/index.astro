@@ -5,26 +5,67 @@ import { getCollection } from 'astro:content'
 
 const posts = await getCollection('blog')
 posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const latestPost = posts.at(0)
 ---
 
-<BaseLayout title='Blog' description='asd'>
+<BaseLayout title='Blog' description='My personal blog'>
   <h2 transition:name='blog' class='w-fit'>Blog</h2>
+  {
+    latestPost && (
+      <div class='overflow-hidden rounded-lg bg-white bg-opacity-[3%] p-3'>
+        <a href={`/blog/${latestPost.slug}`}>
+          <h3>{latestPost.data.title}</h3>
+          <div class='flex flex-col md:flex-row'>
+            {latestPost.data.thumbnail && latestPost.data.alt && (
+              <div class='m-auto'>
+                <Image
+                  src={latestPost.data.thumbnail}
+                  alt={latestPost.data.alt}
+                  width={500}
+                  height={500}
+                  class='w-full max-w-xl'
+                />
+              </div>
+            )}
+
+            <div class='pt-3 md:pt-0 md:pl-3 hover:no-underline'>
+              {latestPost.data.description}
+              <br />
+              <br />
+              <i class='text-sm text-gray-400'>
+                {latestPost.data.date.toLocaleDateString()}
+              </i>
+            </div>
+          </div>
+        </a>
+      </div>
+    )
+  }
   <div class='grid grid-cols-1 md:grid-cols-2 gap-3'>
     {
-      posts.map((post) => (
-        <div class='relative'>
+      posts.slice(1).map((post) => (
+        <div class='overflow-hidden rounded-lg bg-white bg-opacity-[3%] p-3'>
           <a href={`/blog/${post.slug}`}>
             <h3>{post.data.title}</h3>
-            {post.data.thumbnail && (
-              <Image
-                src={post.data.thumbnail!}
-                alt={'asd'}
-                width={500}
-                height={500}
-              />
-            )}
-            <div class='absolute bottom-0 bg-black bg-opacity-50 backdrop-blur-sm p-2'>
-              {post.data.description}
+            <div class='flex flex-col'>
+              {post.data.thumbnail && post.data.alt && (
+                <div class='m-auto'>
+                  <Image
+                    src={post.data.thumbnail}
+                    alt={post.data.alt}
+                    width={500}
+                    height={500}
+                  />
+                </div>
+              )}
+              <div class='pt-3'>
+                {post.data.description}
+                <br />
+                <br />
+                <i class='text-sm text-gray-400'>
+                  {post.data.date.toLocaleDateString()}
+                </i>
+              </div>
             </div>
           </a>
         </div>
