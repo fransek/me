@@ -5,6 +5,9 @@ import '@fontsource-variable/fira-code'
 import { fade } from 'astro:transitions'
 import BaseHead from './BaseHead.astro'
 import { toKebabCase } from '@/lib/formatters'
+import LinkedInIcon from '@/components/icons/LinkedInIcon.astro'
+import GithubIcon from '@/components/icons/GithubIcon.astro'
+import MailIcon from '@/components/icons/MailIcon.astro'
 
 interface Props {
   title: string
@@ -46,8 +49,11 @@ const links = Object.entries(ROUTES).filter(([_, route]) => route !== path)
     >
       <slot />
     </main>
-    <footer class='p-4 text-center'>
-      <p>Frans Ekman</p>
+    <footer class='p-4 flex gap-4'>
+      Frans Ekman
+      <LinkedInIcon href='https://www.linkedin.com/in/frans-ekman/' />
+      <GithubIcon href='https://www.github.com/fransek/' />
+      <MailIcon href='mailto:fransedvinekman@gmail.com' />
     </footer>
   </body>
 </html>
