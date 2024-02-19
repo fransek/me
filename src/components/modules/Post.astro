@@ -1,0 +1,37 @@
+---
+import { cn } from '@/lib/utils'
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  post: CollectionEntry<'blog'>
+  large?: boolean
+}
+
+const { post, large = false } = Astro.props
+---
+
+<div>
+  <a href={`/blog/${post.slug}`}>
+    <h3 transition:name={post.slug}>{post.data.title}</h3>
+    <div class={cn('flex flex-col', { 'md:flex-row': large })}>
+      {
+        post.data.thumbnail && post.data.alt && (
+          <Image
+            src={post.data.thumbnail}
+            alt={post.data.alt}
+            width={500}
+            height={500}
+            class='w-full max-w-xl'
+          />
+        )
+      }
+      <div class={cn('pt-3 w-full', { 'md:pt-0 md:pl-3': large })}>
+        <p>{post.data.description}</p>
+        <i class='text-sm text-gray-400'>
+          {post.data.date.toLocaleDateString()}
+        </i>
+      </div>
+    </div>
+  </a>
+</div>

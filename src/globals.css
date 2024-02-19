@@ -1,9 +1,9 @@
 * {
-  @apply font-["Fira_Code"] text-white border-gray-700;
+  @apply font-["Fira_Code"] text-gray-200 border-gray-700;
 }
 
 p {
-  @apply text-gray-300 mb-3 last:mb-0;
+  @apply mb-3 last:mb-0;
 }
 
 h1 {
