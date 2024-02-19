@@ -6,7 +6,6 @@ import '@/globals.css'
 import { ROUTES } from '@/lib/constants'
 import { toKebabCase } from '@/lib/formatters'
 import '@fontsource-variable/fira-code'
-import { fade } from 'astro:transitions'
 import BaseHead from './BaseHead.astro'
 
 interface Props {
@@ -32,7 +31,7 @@ const links = Object.entries(ROUTES).filter(([_, route]) => route !== path)
   </head>
   <body
     class='flex flex-col min-h-screen justify-between bg-gray-900'
-    transition:animate='none'
+    transition:animate='slide'
   >
     <nav class='p-4 flex justify-around sm:justify-center sm:gap-10'>
       {
@@ -43,13 +42,16 @@ const links = Object.entries(ROUTES).filter(([_, route]) => route !== path)
         ))
       }
     </nav>
+    <hr transition:name='top-hr' />
     <main
       class='flex flex-col gap-4 p-4 py-10 max-w-4xl mx-auto w-full flex-1'
-      transition:animate={fade({ duration: 500 })}
+      transition:name='main'
+      transition:animate='slide'
     >
       <slot />
     </main>
-    <footer class='p-10 flex gap-5'>
+    <hr transition:name='bottom-hr' />
+    <footer transition:name='footer' class='p-4 flex gap-5 m-auto'>
       Frans Ekman
       <LinkedInIcon href='https://www.linkedin.com/in/frans-ekman/' />
       <GithubIcon href='https://www.github.com/fransek/' />

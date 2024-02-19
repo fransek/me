@@ -17,7 +17,7 @@ const { title, description, image, date, slug } = Astro.props
 const posts = await getCollection('blog')
 ---
 
-<BaseLayout title={title} description={description} image={image}>
+<BaseLayout title={`Blog | ${title}`} description={description} image={image}>
   <h1 transition:name={slug}>{title}</h1>
   <p>Frans Ekman - {date.toLocaleDateString()}</p>
   <hr />

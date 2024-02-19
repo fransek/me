@@ -13,7 +13,9 @@ const { post, large = false } = Astro.props
 
 <div>
   <a href={`/blog/${post.slug}`}>
-    <h3 transition:name={post.slug}>{post.data.title}</h3>
+    <h3 transition:name={post.slug} transition:animate='slide'>
+      {post.data.title}
+    </h3>
     <div class={cn('flex flex-col', { 'md:flex-row': large })}>
       {
         post.data.thumbnail && post.data.alt && (
