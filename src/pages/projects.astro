@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content'
 const education = await getCollection('project')
 ---
 
-<BaseLayout title='Projects' description='asd'>
+<BaseLayout title='Projects' description="Frans Ekman's projects">
   <h2 transition:name='projects' class='w-fit'>Projects</h2>
   {
     education.map(async (item, index) => {
