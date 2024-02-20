@@ -23,6 +23,9 @@ dependencies:
   '@fontsource-variable/fira-code':
     specifier: ^5.0.16
     version: 5.0.16
+  '@fontsource/ubuntu':
+    specifier: ^5.0.8
+    version: 5.0.8
   astro:
     specifier: ^4.0.7
     version: 4.0.7(typescript@5.3.3)
@@ -657,6 +660,10 @@ packages:
 
   /@fontsource-variable/fira-code@5.0.16:
     resolution: {integrity: sha512-XcBZxdY8yEZ+lB314w6upoHKDWJuVWJUwTHxKeQo952MtV9Cf4mZkQ2z0FeHQ3n6h23pAjmq3FgK+k83/OzHLg==}
+    dev: false
+
+  /@fontsource/ubuntu@5.0.8:
+    resolution: {integrity: sha512-lZY64hVXrnkt/+5jRfm0uMiRv+lmrIdnATAnDj1SPqebmI2UDf3KC9p4rOkIYsBOjOsD6seJ82GIQE067DSvWw==}
     dev: false
 
   /@isaacs/cliui@8.0.2:

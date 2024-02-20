@@ -5,7 +5,7 @@ import MailIcon from '@/components/icons/MailIcon.astro'
 import '@/globals.css'
 import { ROUTES } from '@/lib/constants'
 import { toKebabCase } from '@/lib/formatters'
-import '@fontsource-variable/fira-code'
+import '@fontsource/ubuntu'
 import BaseHead from './BaseHead.astro'
 
 interface Props {
@@ -30,7 +30,7 @@ const links = Object.entries(ROUTES).filter(([_, route]) => route !== path)
     />
   </head>
   <body
-    class='flex flex-col min-h-screen justify-between bg-gray-900'
+    class='flex flex-col min-h-screen justify-between bg-gray-900 font-[Ubuntu]'
     transition:animate='slide'
   >
     <nav class='p-4 flex justify-around sm:justify-center sm:gap-10'>

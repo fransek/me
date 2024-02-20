@@ -16,6 +16,7 @@
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/tailwind": "^5.0.4",
     "@fontsource-variable/fira-code": "^5.0.16",
+    "@fontsource/ubuntu": "^5.0.8",
     "astro": "^4.0.7",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.3.3"

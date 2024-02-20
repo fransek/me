@@ -16,8 +16,10 @@ const education = await getCollection('project')
           <h3>{item.data.title}</h3>
           <Content />
           {item.data.link && (
-            <div class='flex justify-end'>
-              <a href={item.data.link}>Project link</a>
+            <div class='pb-3'>
+              <a href={item.data.link} class='text-blue-300'>
+                Project link
+              </a>
             </div>
           )}
           {index !== education.length - 1 && <hr />}
