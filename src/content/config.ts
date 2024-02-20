@@ -32,7 +32,7 @@ const work = defineCollection({
     title: z.string(),
     company: z.string(),
     startDate: z.date(),
-    endDate: z.date(),
+    endDate: z.date().optional(),
   }),
 })
 
@@ -42,7 +42,7 @@ const education = defineCollection({
     title: z.string(),
     institution: z.string(),
     startDate: z.date(),
-    endDate: z.date(),
+    endDate: z.date().optional(),
   }),
 })
 

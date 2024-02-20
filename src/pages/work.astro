@@ -22,7 +22,7 @@ work.sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime())
             {formatDateRange(item.data.startDate, item.data.endDate)}
           </p>
           <Content />
-          {index < work.length - 1 && <hr />}
+          {index !== work.length - 1 && <hr />}
         </div>
       )
     })
