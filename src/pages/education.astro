@@ -9,8 +9,7 @@ education.sort(
 )
 ---
 
-<BaseLayout title='Education' description="Frans Ekman's education">
-  <h2 transition:name='education' class='w-fit'>Education</h2>
+<BaseLayout>
   {
     education.map(async (item, index) => {
       const { Content } = await item.render()

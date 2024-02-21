@@ -8,8 +8,7 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 const latestPost = posts.at(0)
 ---
 
-<BaseLayout title='Blog' description="Frans Ekman's personal blog">
-  <h2 transition:name='blog' class='w-fit'>Blog</h2>
+<BaseLayout>
   {latestPost && <Post post={latestPost} large />}
   <div class='grid grid-cols-1 md:grid-cols-2 gap-3'>
     {posts.slice(1).map((post) => <Post post={post} />)}

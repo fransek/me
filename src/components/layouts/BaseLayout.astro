@@ -3,29 +3,34 @@ import GithubIcon from '@/components/icons/GithubIcon.astro'
 import LinkedInIcon from '@/components/icons/LinkedInIcon.astro'
 import MailIcon from '@/components/icons/MailIcon.astro'
 import '@/globals.css'
-import { ROUTES } from '@/lib/constants'
-import { toKebabCase } from '@/lib/formatters'
 import '@fontsource/ubuntu'
+import { getEntry } from 'astro:content'
 import BaseHead from './BaseHead.astro'
 
 interface Props {
-  title: string
-  description: string
+  title?: string
+  description?: string
   image?: string
 }
 
 const { title, description, image } = Astro.props
-const path = Astro.url.pathname
 
-const links = Object.entries(ROUTES).filter(([_, route]) => route !== path)
+const path = Astro.url.pathname
+const { data } = await getEntry('pages', 'pages')
+const links = Object.values(data).filter(({ route }) => route !== path)
+const currentPage = Object.values(data).find(({ route }) => route === path)
+const headTitle =
+  title || currentPage
+    ? `Frans Ekman | ${title ?? currentPage?.title}`
+    : undefined
 ---
 
 <!doctype html>
 <html lang='en'>
   <head>
     <BaseHead
-      title={`Frans Ekman | ${title}`}
-      description={description}
+      title={headTitle}
+      description={description ?? currentPage?.description}
       image={image}
     />
   </head>
@@ -35,9 +40,9 @@ const links = Object.entries(ROUTES).filter(([_, route]) => route !== path)
   >
     <nav class='p-4 flex justify-around sm:justify-center sm:gap-10'>
       {
-        links.map(([label, route]) => (
-          <a href={route} transition:name={toKebabCase(label)}>
-            {label}
+        links.map(({ route, title, slug }) => (
+          <a href={route} transition:name={slug}>
+            {title}
           </a>
         ))
       }
@@ -48,6 +53,13 @@ const links = Object.entries(ROUTES).filter(([_, route]) => route !== path)
       transition:name='main'
       transition:animate='slide'
     >
+      {
+        currentPage && (
+          <h2 transition:name={currentPage?.slug} class='w-fit'>
+            {currentPage?.title}
+          </h2>
+        )
+      }
       <slot />
     </main>
     <hr transition:name='bottom-hr' />

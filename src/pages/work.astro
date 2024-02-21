@@ -7,8 +7,7 @@ const work = await getCollection('work')
 work.sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime())
 ---
 
-<BaseLayout title='Work' description="Frans Ekman's work history">
-  <h2 transition:name='work' class='w-fit'>Work</h2>
+<BaseLayout>
   {
     work.map(async (item, index) => {
       const { Content } = await item.render()

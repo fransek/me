@@ -2,14 +2,10 @@
 import BaseLayout from '@/components/layouts/BaseLayout.astro'
 import { getEntry } from 'astro:content'
 
-const { render } = await getEntry('introduction', 'index')
+const { render } = await getEntry('introduction', 'introduction')
 const { Content } = await render()
 ---
 
-<BaseLayout
-  title='About me'
-  description='Frans Ekman is a software developer from Sweden.'
->
-  <h2 transition:name='about-me' class='w-fit'>About me</h2>
+<BaseLayout>
   <Content />
 </BaseLayout>
