@@ -1,11 +1,23 @@
 ---
 import BaseLayout from '@/components/layouts/BaseLayout.astro'
-import { getEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
 
-const { render } = await getEntry('home', 'home')
-const { Content } = await render()
+const sections = await getCollection('sections')
 ---
 
 <BaseLayout>
-  <Content />
+  {
+    sections.map(async (section) => {
+      const { Content } = await section.render()
+      return (
+        <section class='flex flex-col gap-4 mb-8'>
+          {section.data.title &&
+            <h2>{section.data.title}</h2>
+            <hr />
+          }
+          <Content />
+        </section>
+      )
+    })
+  }
 </BaseLayout>

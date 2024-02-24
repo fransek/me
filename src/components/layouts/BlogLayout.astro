@@ -20,7 +20,7 @@ const posts = await getCollection('blog')
 <BaseLayout title={`Blog | ${title}`} description={description} image={image}>
   <h1 transition:name={slug}>{title}</h1>
   <p>Frans Ekman, {date.toLocaleDateString()}</p>
-  <hr />
+  <hr transition:name='heading-hr' />
   <slot />
   <hr />
   <h2>Recent posts</h2>
