@@ -17,9 +17,9 @@ const { title, description, image } = Astro.props
 
 const path = Astro.url.pathname
 const { data } = await getEntry('pages', 'pages')
-const links = Object.values(data).filter(({ route }) => route !== path)
-const currentPage = Object.values(data).find(({ route }) => route === path)
-const headTitle =
+const links = data.pages.filter(({ route }) => route !== path)
+const currentPage = data.pages.find(({ route }) => route === path)
+const fullTitle =
   title || currentPage
     ? `Frans Ekman | ${title ?? currentPage?.title}`
     : undefined
@@ -29,7 +29,7 @@ const headTitle =
 <html lang='en'>
   <head>
     <BaseHead
-      title={headTitle}
+      title={fullTitle}
       description={description ?? currentPage?.description}
       image={image}
     />

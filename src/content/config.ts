@@ -46,21 +46,17 @@ const education = defineCollection({
   }),
 })
 
-const pageSchema = z.object({
-  title: z.string(),
-  description: z.string(),
-  route: z.string(),
-  slug: z.string(),
-})
-
 const pages = defineCollection({
   type: 'data',
   schema: z.object({
-    home: pageSchema,
-    education: pageSchema,
-    work: pageSchema,
-    projects: pageSchema,
-    blog: pageSchema,
+    pages: z.array(
+      z.object({
+        title: z.string(),
+        description: z.string(),
+        route: z.string(),
+        slug: z.string(),
+      })
+    ),
   }),
 })
 

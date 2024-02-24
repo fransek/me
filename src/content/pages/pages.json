@@ -1,32 +1,34 @@
 {
-  "home": {
-    "title": "About me",
-    "description": "Frans Ekman is a software developer from Sweden.",
-    "route": "/",
-    "slug": "home"
-  },
-  "education": {
-    "title": "Education",
-    "description": "Frans Ekman's education history.",
-    "route": "/education/",
-    "slug": "education"
-  },
-  "work": {
-    "title": "Work",
-    "description": "Frans Ekmans work history.",
-    "route": "/work/",
-    "slug": "work"
-  },
-  "projects": {
-    "title": "Projects",
-    "description": "Frans Ekman's project portfolio.",
-    "route": "/projects/",
-    "slug": "projects"
-  },
-  "blog": {
-    "title": "Blog",
-    "description": "Frans Ekman's personal blog.",
-    "route": "/blog/",
-    "slug": "blog"
-  }
+  "pages": [
+    {
+      "title": "About me",
+      "description": "Frans Ekman is a software developer from Sweden.",
+      "route": "/",
+      "slug": "home"
+    },
+    {
+      "title": "Education",
+      "description": "Frans Ekman's education history.",
+      "route": "/education/",
+      "slug": "education"
+    },
+    {
+      "title": "Work",
+      "description": "Frans Ekmans work history.",
+      "route": "/work/",
+      "slug": "work"
+    },
+    {
+      "title": "Projects",
+      "description": "Frans Ekman's project portfolio.",
+      "route": "/projects/",
+      "slug": "projects"
+    },
+    {
+      "title": "Blog",
+      "description": "Frans Ekman's personal blog.",
+      "route": "/blog/",
+      "slug": "blog"
+    }
+  ]
 }
