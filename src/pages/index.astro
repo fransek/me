@@ -2,7 +2,7 @@
 import BaseLayout from '@/components/layouts/BaseLayout.astro'
 import { getEntry } from 'astro:content'
 
-const { render } = await getEntry('introduction', 'introduction')
+const { render } = await getEntry('home', 'home')
 const { Content } = await render()
 ---
 
