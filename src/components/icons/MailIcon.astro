@@ -1,14 +1,15 @@
 ---
 interface Props {
   href: string
+  size?: number
 }
-const { href } = Astro.props
+const { href, size = 24 } = Astro.props
 ---
 
 <a href={href} aria-label='email'>
   <svg
-    height='24'
-    width='24'
+    height={size}
+    width={size}
     preserveAspectRatio='xMidYMid'
     viewBox='0 0 512 512'
     xmlns='http://www.w3.org/2000/svg'
