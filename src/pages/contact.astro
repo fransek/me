@@ -7,7 +7,7 @@ import { sendEmail } from '@/lib/nodemailer'
 export const prerender = false
 
 if (Astro.request.method === 'POST') {
-  let success = true
+  let isSuccess = true
   try {
     const data = await Astro.request.formData()
     const name = data.get('name')
@@ -18,9 +18,9 @@ if (Astro.request.method === 'POST') {
     }
     await sendEmail({ name, email, message })
   } catch {
-    success = false
+    isSuccess = false
   } finally {
-    return Astro.redirect(`/contact/?success=${success}`)
+    return Astro.redirect(`/contact/?success=${isSuccess}`)
   }
 }
 
