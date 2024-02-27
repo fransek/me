@@ -35,18 +35,21 @@ const fullTitle =
     />
   </head>
   <body
-    class='flex flex-col min-h-screen justify-between bg-gray-900 font-[Ubuntu]'
+    class='flex flex-col min-h-screen justify-between'
     transition:animate='slide'
   >
-    <nav class='p-4 flex justify-around sm:justify-center sm:gap-10'>
-      {
-        links.map(({ route, title, slug }) => (
-          <a href={route} transition:name={slug}>
-            {title}
-          </a>
-        ))
-      }
-    </nav>
+    <header class='p-4 flex' transition:name='header'>
+      <a class='no-underline' href='/'>Frans Ekman</a>
+      <nav class='ml-auto flex gap-6'>
+        {
+          links.map(({ route, title, slug }) => (
+            <a class='no-underline' href={route} transition:name={slug}>
+              {title}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
     <hr transition:name='top-hr' />
     <main
       class='flex flex-col gap-4 p-4 py-10 max-w-4xl mx-auto w-full flex-1'
@@ -55,9 +58,12 @@ const fullTitle =
     >
       {
         currentPage && (
-          <h2 transition:name={currentPage?.slug} class='w-fit'>
-            {currentPage?.title}
-          </h2>
+          <>
+            <h2 transition:name={currentPage?.slug} class='w-fit'>
+              {currentPage?.title}
+            </h2>
+            <hr transition:name='heading-hr' />
+          </>
         )
       }
       <slot />

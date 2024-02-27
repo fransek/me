@@ -12,7 +12,7 @@ const { post, large = false } = Astro.props
 ---
 
 <div>
-  <a href={`/blog/${post.slug}`}>
+  <a class='no-underline' href={`/blog/${post.slug}`}>
     <h3 transition:name={post.slug} transition:animate='slide'>
       {post.data.title}
     </h3>

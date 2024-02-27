@@ -7,22 +7,10 @@
       "slug": "home"
     },
     {
-      "title": "Education",
-      "description": "Frans Ekman's education history.",
-      "route": "/education/",
-      "slug": "education"
-    },
-    {
-      "title": "Work",
-      "description": "Frans Ekmans work history.",
-      "route": "/work/",
-      "slug": "work"
-    },
-    {
-      "title": "Projects",
-      "description": "Frans Ekman's project portfolio.",
-      "route": "/projects/",
-      "slug": "projects"
+      "title": "Contact",
+      "description": "Get in touch with Frans Ekman.",
+      "route": "/contact/",
+      "slug": "contact"
     },
     {
       "title": "Blog",

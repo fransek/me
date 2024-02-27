@@ -1,14 +1,15 @@
 ---
 interface Props {
   href: string
+  size?: number
 }
-const { href } = Astro.props
+const { href, size = 24 } = Astro.props
 ---
 
 <a href={href} aria-label='linkedin'>
   <svg
-    height='24'
-    width='24'
+    height={size}
+    width={size}
     style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'
     version='1.1'
     viewBox='0 0 512 512'
