@@ -1,4 +1,6 @@
 ---
+import CheckMarkIcon from '@/components/icons/CheckMarkIcon.astro'
+import ErrorIcon from '@/components/icons/ErrorIcon.astro'
 import BaseLayout from '@/components/layouts/BaseLayout.astro'
 import { sendEmail } from '@/lib/nodemailer'
 
@@ -28,9 +30,15 @@ const success = Astro.url.searchParams.get('success') as 'true' | 'false' | null
 <BaseLayout>
   {
     success === 'true' ? (
-      <p>Your message was delivered successfully!</p>
+      <p class='flex gap-2'>
+        <CheckMarkIcon />
+        Your message was delivered successfully!
+      </p>
     ) : success === 'false' ? (
-      <p>There was an error delivering your message. Please try again later.</p>
+      <p class='flex gap-2'>
+        <ErrorIcon /> There was an error delivering your message. Please try
+        again later.
+      </p>
     ) : (
       <form class='flex flex-col gap-3' method='POST'>
         <div class='grid gap-3 sm:grid-cols-2'>
