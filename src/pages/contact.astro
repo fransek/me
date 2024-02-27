@@ -1,5 +1,72 @@
 ---
 import BaseLayout from '@/components/layouts/BaseLayout.astro'
+import { sendEmail } from '@/lib/nodemailer'
+
+export const prerender = false
+
+if (Astro.request.method === 'POST') {
+  let success = true
+  try {
+    const data = await Astro.request.formData()
+    const name = data.get('name')
+    const email = data.get('email')
+    const message = data.get('message')
+    if (!name || !email || !message) {
+      throw new Error('Missing required fields')
+    }
+    await sendEmail({ name, email, message })
+  } catch {
+    success = false
+  } finally {
+    return Astro.redirect(`/contact/?success=${success}`)
+  }
+}
+
+const success = Astro.url.searchParams.get('success') as 'true' | 'false' | null
 ---
 
-<BaseLayout />
+<BaseLayout>
+  {
+    success === 'true' ? (
+      <p>Your message was delivered successfully!</p>
+    ) : success === 'false' ? (
+      <p>There was an error delivering your message. Please try again later.</p>
+    ) : (
+      <form class='flex flex-col gap-3' method='POST'>
+        <div class='grid gap-3 sm:grid-cols-2'>
+          <div class='flex flex-col gap-1'>
+            <label for='name'>Name</label>
+            <input
+              class='rounded-sm p-2 border-none outline-none text-black h-8'
+              type='text'
+              id='name'
+              name='name'
+              required
+            />
+          </div>
+          <div class='flex flex-col gap-1'>
+            <label for='email'>Email</label>
+            <input
+              class='rounded-sm p-2 border-none outline-none text-black h-8'
+              type='email'
+              id='email'
+              name='email'
+              required
+            />
+          </div>
+        </div>
+        <div class='flex flex-col gap-1'>
+          <label for='message'>Message</label>
+          <textarea
+            class='rounded-sm p-2 border-none outline-none text-black'
+            id='message'
+            name='message'
+            required
+            rows={8}
+          />
+        </div>
+        <button type='submit'>Send</button>
+      </form>
+    )
+  }
+</BaseLayout>

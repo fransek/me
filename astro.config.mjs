@@ -7,4 +7,5 @@ import tailwind from '@astrojs/tailwind'
 export default defineConfig({
   site: 'https://fransekman.vercel.app/',
   integrations: [sitemap(), tailwind()],
+  output: 'hybrid',
 })
