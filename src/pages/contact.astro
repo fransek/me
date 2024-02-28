@@ -4,8 +4,6 @@ import ErrorIcon from '@/components/icons/ErrorIcon.astro'
 import BaseLayout from '@/components/layouts/BaseLayout.astro'
 import { sendEmail } from '@/lib/nodemailer'
 
-export const prerender = false
-
 if (Astro.request.method === 'POST') {
   try {
     const data = await Astro.request.formData()
