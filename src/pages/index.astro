@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/components/layouts/BaseLayout.astro'
+import Card from '@/components/ui/Card.astro'
 import { getCollection } from 'astro:content'
 
 const sections = await getCollection('sections')
@@ -10,13 +11,13 @@ const sections = await getCollection('sections')
     sections.map(async (section) => {
       const { Content } = await section.render()
       return (
-        <section class='flex flex-col gap-4 mb-8'>
+        <Card className='flex flex-col gap-4'>
           {section.data.title &&
             <h2>{section.data.title}</h2>
             <hr />
           }
           <Content />
-        </section>
+        </Card>
       )
     })
   }
