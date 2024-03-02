@@ -1,7 +1,7 @@
 {
   "pages": [
     {
-      "title": "Home",
+      "title": "Frans Ekman",
       "description": "Frans Ekman's personal website.",
       "route": "/",
       "slug": "home",

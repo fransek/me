@@ -10,23 +10,26 @@ import { Image } from 'astro:assets'
 
 const { data } = await getEntry('pages', 'pages')
 const links = data.pages.filter((page) => page.excludeFromNav !== true)
+const homePage = data.pages.find(({ route }) => route === '/')
+
+if (!homePage) {
+  throw new Error('No home page data found')
+}
 ---
 
 <!doctype html>
 <html lang='en'>
   <head>
-    <BaseHead
-      title={'Frans Ekman'}
-      description={'description ?? currentPage?.description'}
-      image={'image'}
-    />
+    <BaseHead title={homePage.title} description={homePage.description} />
   </head>
   <body class='flex flex-col min-h-screen justify-between'>
     <main
       class='flex flex-col gap-4 p-4 py-10 max-w-4xl mx-auto flex-1 items-center justify-center w-fit'
     >
       <h1 transition:name='logo' class='text-4xl font-bold'>Frans Ekman</h1>
-      <div class='rounded-full overflow-hidden w-60 h-60 bg-white bg-opacity-5'>
+      <div
+        class='rounded-full overflow-hidden w-56 h-w-56 bg-white bg-opacity-5'
+      >
         <Image
           class='w-full h-full'
           src='/me.png'
@@ -36,7 +39,7 @@ const links = data.pages.filter((page) => page.excludeFromNav !== true)
         />
       </div>
       <hr class='w-full' />
-      <nav class='flex gap-4'>
+      <nav class='flex gap-6'>
         {
           links.map((link) => (
             <a
@@ -49,10 +52,13 @@ const links = data.pages.filter((page) => page.excludeFromNav !== true)
           ))
         }
       </nav>
-      <div class='flex gap-4'>
-        <LinkedInIcon href='https://www.linkedin.com/in/frans-ekman/' />
-        <GithubIcon href='https://www.github.com/fransek/' />
-        <MailIcon href='mailto:fransedvinekman@gmail.com' />
+      <div class='flex gap-6'>
+        <LinkedInIcon
+          size={32}
+          href='https://www.linkedin.com/in/frans-ekman/'
+        />
+        <GithubIcon size={32} href='https://www.github.com/fransek/' />
+        <MailIcon size={32} href='mailto:fransedvinekman@gmail.com' />
       </div>
     </main>
   </body>
