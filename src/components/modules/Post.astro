@@ -30,7 +30,7 @@ const { post, large = false } = Astro.props
       }
       <div class={cn('pt-3 w-full', { 'md:pt-0 md:pl-3': large })}>
         <p>{post.data.description}</p>
-        <i class='text-sm text-gray-400'>
+        <i class='text-sm text-primary-200'>
           {post.data.date.toLocaleDateString()}
         </i>
       </div>
