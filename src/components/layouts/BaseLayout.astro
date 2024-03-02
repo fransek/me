@@ -36,10 +36,7 @@ const fullTitle =
       image={image}
     />
   </head>
-  <body
-    class='flex flex-col min-h-screen justify-between'
-    transition:animate='slide'
-  >
+  <body class='flex flex-col min-h-screen justify-between'>
     <header class='p-4 flex'>
       <a class='no-underline' href='/' transition:name='logo'>Frans Ekman</a>
       <nav class='ml-auto flex gap-6'>
@@ -53,10 +50,7 @@ const fullTitle =
       </nav>
     </header>
     <hr transition:name='top-hr' />
-    <main
-      class='flex flex-col gap-4 p-4 py-10 max-w-4xl mx-auto w-full flex-1'
-      transition:animate='slide'
-    >
+    <main class='flex flex-col gap-4 p-4 py-10 max-w-4xl mx-auto w-full flex-1'>
       {
         currentPage && (
           <>
