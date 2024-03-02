@@ -17,7 +17,9 @@ const { title, description, image } = Astro.props
 
 const path = Astro.url.pathname
 const { data } = await getEntry('pages', 'pages')
-const links = data.pages.filter(({ route }) => route !== path)
+const links = data.pages.filter(
+  ({ route, excludeFromNav }) => route !== path && excludeFromNav !== true
+)
 const currentPage = data.pages.find(({ route }) => route === path)
 const fullTitle =
   title || currentPage
@@ -38,8 +40,8 @@ const fullTitle =
     class='flex flex-col min-h-screen justify-between'
     transition:animate='slide'
   >
-    <header class='p-4 flex' transition:name='header'>
-      <a class='no-underline' href='/'>Frans Ekman</a>
+    <header class='p-4 flex'>
+      <a class='no-underline' href='/' transition:name='logo'>Frans Ekman</a>
       <nav class='ml-auto flex gap-6'>
         {
           links.map(({ route, title, slug }) => (
@@ -53,7 +55,6 @@ const fullTitle =
     <hr transition:name='top-hr' />
     <main
       class='flex flex-col gap-4 p-4 py-10 max-w-4xl mx-auto w-full flex-1'
-      transition:name='main'
       transition:animate='slide'
     >
       {

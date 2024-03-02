@@ -1,10 +1,17 @@
 {
   "pages": [
     {
+      "title": "Home",
+      "description": "Frans Ekman's personal website.",
+      "route": "/",
+      "slug": "home",
+      "excludeFromNav": true
+    },
+    {
       "title": "About me",
       "description": "Frans Ekman is a software developer from Sweden.",
-      "route": "/",
-      "slug": "home"
+      "route": "/about-me/",
+      "slug": "about-me"
     },
     {
       "title": "Contact",

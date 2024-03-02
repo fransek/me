@@ -1,24 +1,59 @@
 ---
-import BaseLayout from '@/components/layouts/BaseLayout.astro'
-import Card from '@/components/ui/Card.astro'
-import { getCollection } from 'astro:content'
+import GithubIcon from '@/components/icons/GithubIcon.astro'
+import LinkedInIcon from '@/components/icons/LinkedInIcon.astro'
+import MailIcon from '@/components/icons/MailIcon.astro'
+import BaseHead from '@/components/layouts/BaseHead.astro'
+import { getEntry } from 'astro:content'
+import '@/globals.css'
+import '@fontsource/ubuntu'
+import { Image } from 'astro:assets'
 
-const sections = await getCollection('sections')
+const { data } = await getEntry('pages', 'pages')
+const links = data.pages.filter((page) => page.excludeFromNav !== true)
 ---
 
-<BaseLayout>
-  {
-    sections.map(async (section) => {
-      const { Content } = await section.render()
-      return (
-        <Card className='flex flex-col gap-4'>
-          {section.data.title &&
-            <h2>{section.data.title}</h2>
-            <hr />
-          }
-          <Content />
-        </Card>
-      )
-    })
-  }
-</BaseLayout>
+<!doctype html>
+<html lang='en'>
+  <head>
+    <BaseHead
+      title={'Frans Ekman'}
+      description={'description ?? currentPage?.description'}
+      image={'image'}
+    />
+  </head>
+  <body class='flex flex-col min-h-screen justify-between'>
+    <main
+      class='flex flex-col gap-4 p-4 py-10 max-w-4xl mx-auto flex-1 items-center justify-center w-fit'
+    >
+      <h1 transition:name='logo' class='text-4xl font-bold'>Frans Ekman</h1>
+      <div class='rounded-full overflow-hidden w-60 h-60 bg-white bg-opacity-5'>
+        <Image
+          class='w-full h-full'
+          src='/me.png'
+          alt='A picture of me'
+          width={500}
+          height={500}
+        />
+      </div>
+      <hr class='w-full' />
+      <nav class='flex gap-4'>
+        {
+          links.map((link) => (
+            <a
+              class='no-underline'
+              transition:name={link.slug}
+              href={link.route}
+            >
+              {link.title}
+            </a>
+          ))
+        }
+      </nav>
+      <div class='flex gap-4'>
+        <LinkedInIcon href='https://www.linkedin.com/in/frans-ekman/' />
+        <GithubIcon href='https://www.github.com/fransek/' />
+        <MailIcon href='mailto:fransedvinekman@gmail.com' />
+      </div>
+    </main>
+  </body>
+</html>

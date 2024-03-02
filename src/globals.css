@@ -85,6 +85,6 @@
   [type='button'],
   [type='reset'],
   [type='submit'] {
-    @apply bg-secondary-700 rounded-lg p-2 min-w-24 hover:bg-secondary-800 transition-colors;
+    @apply bg-secondary-700 rounded-lg py-2 px-4 min-w-24 hover:bg-secondary-800 transition-colors;
   }
 }
