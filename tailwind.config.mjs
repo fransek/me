@@ -3,6 +3,9 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
+      boxShadow: {
+        glow: '0 0 2rem 1px',
+      },
       colors: {
         primary: {
           50: '#f7f7f8',
@@ -29,19 +32,6 @@ export default {
           800: '#462fa2',
           900: '#3d2e81',
           950: '#251b4b',
-        },
-        tertiary: {
-          50: '#faf5ff',
-          100: '#f3e9fe',
-          200: '#e9d6fe',
-          300: '#d7b7fb',
-          400: '#bf88f8',
-          500: '#ab63f2',
-          600: '#9139e4',
-          700: '#7d28c8',
-          800: '#6a26a3',
-          900: '#572083',
-          950: '#3a0a61',
         },
       },
     },

@@ -6,6 +6,10 @@ body {
   @apply text-primary-50 border-secondary-700;
 }
 
+hr {
+  @apply shadow-glow shadow-secondary-700;
+}
+
 p {
   @apply text-primary-200;
 }
