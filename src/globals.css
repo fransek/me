@@ -1,13 +1,27 @@
 body {
-  @apply bg-zinc-950 font-[Ubuntu];
+  @apply bg-primary-950 font-[Ubuntu];
 }
 
 * {
-  @apply text-white border-indigo-800;
+  @apply text-primary-50 border-secondary-700;
 }
 
 p {
-  @apply text-zinc-400;
+  @apply text-primary-200;
+}
+
+a {
+  @apply underline hover:text-secondary-400 transition-colors;
+}
+
+strong,
+b {
+  @apply font-bold;
+}
+
+em,
+i {
+  @apply italic text-primary-200;
 }
 
 h1 {
@@ -34,20 +48,6 @@ h6 {
   @apply text-base;
 }
 
-a {
-  @apply underline hover:text-indigo-400 transition-colors;
-}
-
-strong,
-b {
-  @apply font-bold;
-}
-
-em,
-i {
-  @apply italic text-zinc-400;
-}
-
 ul {
   @apply list-disc list-inside;
 }
@@ -57,13 +57,19 @@ ol {
 }
 
 code {
-  @apply bg-gray-900 text-gray-300 rounded p-1;
+  @apply bg-primary-900 text-primary-50 rounded p-1;
 }
 
 pre {
-  @apply bg-gray-900 text-gray-300 rounded p-3;
+  @apply bg-primary-900 text-primary-50 rounded p-3;
 }
 
 blockquote {
-  @apply border-l-4 border-gray-700 pl-2;
+  @apply border-l-4 border-primary-900 pl-2;
+}
+
+input,
+textarea,
+select {
+  @apply bg-primary-50 text-primary-950 rounded p-2 border-none outline-none min-h-8;
 }
