@@ -1,86 +1,90 @@
-body {
-  @apply bg-primary-950 font-[Ubuntu];
-}
+@tailwind base;
 
-* {
-  @apply text-primary-50 border-secondary-700;
-}
+@layer base {
+  body {
+    @apply bg-primary-950 font-[Ubuntu];
+  }
 
-hr {
-  @apply shadow-glow shadow-secondary-700;
-}
+  * {
+    @apply text-primary-50 border-secondary-700;
+  }
 
-p {
-  @apply text-primary-200;
-}
+  hr {
+    @apply shadow-glow shadow-secondary-700;
+  }
 
-a {
-  @apply underline hover:text-secondary-400 transition-colors;
-}
+  p {
+    @apply text-primary-200;
+  }
 
-strong,
-b {
-  @apply font-bold;
-}
+  a {
+    @apply underline hover:text-secondary-400 transition-colors;
+  }
 
-em,
-i {
-  @apply italic text-primary-200;
-}
+  strong,
+  b {
+    @apply font-bold;
+  }
 
-h1 {
-  @apply text-4xl;
-}
+  em,
+  i {
+    @apply italic text-primary-200;
+  }
 
-h2 {
-  @apply text-3xl;
-}
+  h1 {
+    @apply text-4xl;
+  }
 
-h3 {
-  @apply text-2xl;
-}
+  h2 {
+    @apply text-3xl;
+  }
 
-h4 {
-  @apply text-xl;
-}
+  h3 {
+    @apply text-2xl;
+  }
 
-h5 {
-  @apply text-lg;
-}
+  h4 {
+    @apply text-xl;
+  }
 
-h6 {
-  @apply text-base;
-}
+  h5 {
+    @apply text-lg;
+  }
 
-ul {
-  @apply list-disc list-inside;
-}
+  h6 {
+    @apply text-base;
+  }
 
-ol {
-  @apply list-decimal list-inside;
-}
+  ul {
+    @apply list-disc list-inside;
+  }
 
-code {
-  @apply bg-primary-900 text-primary-50 rounded p-1;
-}
+  ol {
+    @apply list-decimal list-inside;
+  }
 
-pre {
-  @apply bg-primary-900 text-primary-50 rounded p-3;
-}
+  code {
+    @apply bg-primary-900 text-primary-50 rounded p-1;
+  }
 
-blockquote {
-  @apply border-l-4 border-primary-900 pl-2;
-}
+  pre {
+    @apply bg-primary-900 text-primary-50 rounded p-3;
+  }
 
-input,
-textarea,
-select {
-  @apply bg-primary-50 text-primary-950 rounded p-2 border-none outline-none min-h-8;
-}
+  blockquote {
+    @apply border-l-4 border-primary-900 pl-2;
+  }
 
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  @apply bg-secondary-700 rounded-lg p-2 min-w-24 hover:bg-secondary-800 transition-colors;
+  input,
+  textarea,
+  select {
+    @apply bg-primary-50 text-primary-950 rounded p-2 border-none outline-none min-h-8;
+  }
+
+  button,
+  [type='button'],
+  [type='reset'],
+  [type='submit'] {
+    @apply bg-secondary-700 rounded-lg p-2 min-w-24 hover:bg-secondary-800 transition-colors;
+  }
 }
