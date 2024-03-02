@@ -77,3 +77,10 @@ textarea,
 select {
   @apply bg-primary-50 text-primary-950 rounded p-2 border-none outline-none min-h-8;
 }
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  @apply bg-secondary-700 rounded-lg p-2 min-w-24 hover:bg-secondary-800 transition-colors;
+}

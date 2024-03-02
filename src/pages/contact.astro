@@ -53,7 +53,9 @@ const success = Astro.url.searchParams.get('success') as 'true' | 'false' | null
           <label for='message'>Message</label>
           <textarea id='message' name='message' required rows={8} />
         </div>
-        <button type='submit'>Send</button>
+        <button type='submit' class='w-fit m-auto'>
+          Send
+        </button>
       </form>
     )
   }
