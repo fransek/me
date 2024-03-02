@@ -27,6 +27,7 @@ const pages = defineCollection({
         description: z.string(),
         route: z.string(),
         slug: z.string(),
+        excludeFromNav: z.boolean().optional(),
       })
     ),
   }),
