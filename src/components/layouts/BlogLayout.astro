@@ -18,6 +18,7 @@ const posts = await getCollection('blog')
 
 <BaseLayout title={`Blog | ${title}`} description={description} image={image}>
   <h1 transition:name={slug}>{title}</h1>
+  <strong>{description}</strong>
   <p>Frans Ekman, {date.toLocaleDateString()}</p>
   <hr transition:name='heading-hr' />
   <slot />

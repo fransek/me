@@ -9,13 +9,14 @@ const sections = defineCollection({
 
 const blog = defineCollection({
   type: 'content',
-  schema: z.object({
-    title: z.string(),
-    date: z.date(),
-    thumbnail: z.string().optional(),
-    alt: z.string().optional(),
-    description: z.string(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      date: z.date(),
+      thumbnail: image().optional(),
+      alt: z.string().optional(),
+      description: z.string(),
+    }),
 })
 
 const pages = defineCollection({
