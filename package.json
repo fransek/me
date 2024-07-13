@@ -1,7 +1,7 @@
 {
   "name": "me",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,19 +10,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.3.4",
-    "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "^3.0.3",
-    "@astrojs/tailwind": "^5.0.4",
-    "@astrojs/vercel": "^7.3.4",
-    "@fontsource/ubuntu": "^5.0.8",
-    "astro": "^4.4.6",
-    "nodemailer": "^6.9.10",
+    "@astrojs/check": "^0.8.1",
+    "@astrojs/rss": "^4.0.7",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/vercel": "^7.7.2",
+    "@fontsource/ubuntu": "^5.0.13",
+    "astro": "^4.11.5",
+    "nodemailer": "^6.9.14",
     "sharp": "^0.33.4",
-    "tailwindcss": "^3.4.0",
-    "typescript": "^5.3.3"
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.3"
   },
   "devDependencies": {
-    "@types/nodemailer": "^6.4.14"
+    "@types/nodemailer": "^6.4.15"
   }
 }
