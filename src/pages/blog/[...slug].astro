@@ -19,7 +19,7 @@ const { Content } = await post.render()
   description={post.data.description}
   date={post.data.date}
   slug={post.slug}
-  image={post.data.thumbnail}
+  image={post.data.thumbnail?.src}
 >
   <Content />
 </BlogLayout>
