@@ -16,11 +16,11 @@ interface Props {
 const { title, description, image } = Astro.props
 
 const path = Astro.url.pathname
-const { data } = await getEntry('pages', 'pages')
-const links = data.pages.filter(
+const entry = await getEntry('pages', 'pages')
+const links = entry?.data.pages.filter(
   ({ route, excludeFromNav }) => route !== path && excludeFromNav !== true
 )
-const currentPage = data.pages.find(({ route }) => route === path)
+const currentPage = entry?.data.pages.find(({ route }) => route === path)
 const fullTitle =
   title || currentPage
     ? `Frans Ekman | ${title ?? currentPage?.title}`
@@ -41,7 +41,7 @@ const fullTitle =
       <a class='no-underline' href='/' transition:name='logo'>Frans Ekman</a>
       <nav class='ml-auto flex gap-6'>
         {
-          links.map(({ route, title, slug }) => (
+          links?.map(({ route, title, slug }) => (
             <a class='no-underline' href={route} transition:name={slug}>
               {title}
             </a>

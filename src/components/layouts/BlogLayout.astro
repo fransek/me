@@ -7,17 +7,17 @@ interface Props {
   title: string
   description: string
   date: Date
-  slug: string
+  id: string
   image?: string
 }
 
-const { title, description, image, date, slug } = Astro.props
+const { title, description, image, date, id } = Astro.props
 
 const posts = await getCollection('blog')
 ---
 
 <BaseLayout title={`Blog | ${title}`} description={description} image={image}>
-  <h1 transition:name={slug}>{title}</h1>
+  <h1 transition:name={id}>{title}</h1>
   <strong>{description}</strong>
   <p>Frans Ekman, {date.toLocaleDateString()}</p>
   <hr transition:name='heading-hr' />
@@ -27,7 +27,7 @@ const posts = await getCollection('blog')
   <div class='grid grid-cols-1 md:grid-cols-2 gap-3'>
     {
       posts
-        .filter((post) => post.slug !== slug)
+        .filter((post) => post.id !== id)
         .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
         .slice(0, 2)
         .map((post) => <Post post={post} />)

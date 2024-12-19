@@ -8,9 +8,9 @@ import '@/globals.css'
 import '@fontsource/ubuntu'
 import { Image } from 'astro:assets'
 
-const { data } = await getEntry('pages', 'pages')
-const links = data.pages.filter((page) => page.excludeFromNav !== true)
-const homePage = data.pages.find(({ route }) => route === '/')
+const entry = await getEntry('pages', 'pages')
+const links = entry?.data.pages.filter((page) => page.excludeFromNav !== true)
+const homePage = entry?.data.pages.find(({ route }) => route === '/')
 
 if (!homePage) {
   throw new Error('No home page data found')
@@ -41,7 +41,7 @@ if (!homePage) {
       <hr class='w-full' />
       <nav class='flex gap-6'>
         {
-          links.map((link) => (
+          links?.map((link) => (
             <a
               class='no-underline'
               transition:name={link.slug}
