@@ -24,6 +24,6 @@ At first glance, it might seem like X isn't posing an immediate threat. But ther
 
 ![91664 wins (91.7%), 0 losses (0.0%), 8336 draws (8.3%)](./tic-tac-toe-images/simulations.png)
 
-[Try it out here](https://tic-tac-astro.vercel.app/)
+[Try it out here](https://tic-tac-toe.fransek.dev)
 
 [Source code here](https://github.com/fransek/tic-tac-astro)
