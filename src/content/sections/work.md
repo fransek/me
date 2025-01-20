@@ -1,5 +1,6 @@
 ---
 title: Work
+order: 3
 ---
 
 ### Web developer - Svenska Handelsbanken

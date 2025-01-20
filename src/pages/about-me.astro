@@ -5,11 +5,12 @@ import { render } from 'astro:content'
 import { getCollection } from 'astro:content'
 
 const sections = await getCollection('sections')
+console.log(sections.toSorted((a, b) => a.data.order - b.data.order))
 ---
 
 <BaseLayout>
   {
-    sections.map(async (section) => {
+    sections.toSorted((a, b) => a.data.order - b.data.order).map(async (section) => {
       const { Content } = await render(section)
       return (
         <Card className='flex flex-col gap-4'>

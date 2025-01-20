@@ -1,5 +1,6 @@
 ---
 title: Education
+order: 4
 ---
 
 ### Visual Design and Programming - Blekinge Institute of Technology

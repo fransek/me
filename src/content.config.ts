@@ -5,6 +5,7 @@ const sections = defineCollection({
   loader: glob({ pattern: '**/[^_]*.md', base: './src/content/sections' }),
   schema: z.object({
     title: z.string().optional(),
+    order: z.number(),
   }),
 })
 

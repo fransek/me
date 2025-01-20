@@ -9,6 +9,7 @@ const latestPost = posts.at(0)
 ---
 
 <BaseLayout>
+  {posts.length === 0 && <p>No posts yet.</p>}
   {latestPost && <Post post={latestPost} large />}
   <div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
     {posts.slice(1).map((post) => <Post post={post} />)}
